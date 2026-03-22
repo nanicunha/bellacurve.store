@@ -779,37 +779,157 @@
     }
     .editorial-card.dark .editorial-body { color: var(--taupe2); }
     /* ── TESTIMONIALS ── */
-    .testimonials-grid {
-      display: grid;
-      grid-template-columns: repeat(3, 1fr);
-      gap: 32px;
+    /* ── INSTAGRAM CAROUSEL ── */
+    .insta-carousel-wrap {
+      position: relative;
     }
-    .testimonial-card {
-      padding: 40px;
-      border: 1px solid var(--beige);
-      background: var(--white);
+    .insta-track-outer {
+      overflow: hidden;
+      position: relative;
     }
-    .stars { color: var(--gold); font-size: 11px; letter-spacing: 3px; margin-bottom: 20px; }
-    .testimonial-text {
-      font-family: 'Cormorant Garamond', serif;
-      font-size: 17px;
-      font-style: italic;
-      color: var(--ink3);
-      line-height: 1.8;
-      margin-bottom: 28px;
-      font-weight: 300;
+    .insta-track {
+      display: flex;
+      gap: 2px;
+      transition: transform 0.5s cubic-bezier(0.25,0.46,0.45,0.94);
+      will-change: transform;
     }
-    .testimonial-author { display: flex; align-items: center; gap: 14px; }
-    .testimonial-avatar {
-      width: 38px; height: 38px;
-      border-radius: 50%;
+    .insta-post {
+      flex: 0 0 calc(25% - 2px);
+      aspect-ratio: 1/1;
+      overflow: hidden;
+      position: relative;
       background: var(--ivory3);
+      cursor: pointer;
+    }
+    .insta-post-img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.6s cubic-bezier(0.25,0.46,0.45,0.94);
+    }
+    .insta-post:hover .insta-post-img { transform: scale(1.05); }
+    .insta-post-overlay {
+      position: absolute;
+      inset: 0;
+      background: rgba(28,26,23,0);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background 0.3s;
+    }
+    .insta-post:hover .insta-post-overlay { background: rgba(28,26,23,0.35); }
+    .insta-post-icon {
+      color: white;
+      font-size: 22px;
+      opacity: 0;
+      transform: scale(0.8);
+      transition: all 0.3s;
+    }
+    .insta-post:hover .insta-post-icon { opacity: 1; transform: scale(1); }
+    .insta-post-placeholder {
+      width: 100%;
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      gap: 10px;
+      background: var(--ivory3);
+    }
+    .insta-post-placeholder-icon { font-size: 32px; opacity: 0.2; }
+    .insta-post-placeholder-brand { font-size: 9px; letter-spacing: 3px; text-transform: uppercase; color: var(--taupe2); }
+    .insta-nav {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      width: 44px; height: 44px;
+      background: var(--white);
       border: 1px solid var(--beige);
       display: flex; align-items: center; justify-content: center;
-      font-size: 15px;
+      cursor: pointer;
+      font-size: 16px;
+      color: var(--ink2);
+      z-index: 10;
+      transition: all 0.3s;
+      box-shadow: 0 2px 12px rgba(0,0,0,0.08);
     }
-    .testimonial-name { font-size: 12px; font-weight: 500; color: var(--ink); letter-spacing: 0.5px; }
-    .testimonial-city { font-size: 10px; color: var(--taupe2); letter-spacing: 1px; margin-top: 2px; }
+    .insta-nav:hover { background: var(--ink); color: var(--white); border-color: var(--ink); }
+    .insta-nav.prev { left: -22px; }
+    .insta-nav.next { right: -22px; }
+    .insta-dots {
+      display: flex;
+      justify-content: center;
+      gap: 8px;
+      margin-top: 28px;
+    }
+    .insta-dot {
+      width: 6px; height: 6px;
+      border-radius: 50%;
+      background: var(--beige);
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+    .insta-dot.active { background: var(--ink); }
+    .insta-header {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 32px;
+    }
+    .insta-handle {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+    }
+    .insta-handle-icon {
+      width: 40px; height: 40px;
+      background: linear-gradient(135deg, #f09433 0%, #e6683c 25%, #dc2743 50%, #cc2366 75%, #bc1888 100%);
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: white;
+      font-size: 18px;
+    }
+    .insta-handle-name {
+      font-size: 13px;
+      font-weight: 500;
+      color: var(--ink);
+      letter-spacing: 0.5px;
+    }
+    .insta-handle-sub {
+      font-size: 10px;
+      color: var(--taupe2);
+      letter-spacing: 1px;
+      margin-top: 2px;
+    }
+    .insta-follow-btn {
+      background: var(--ink);
+      color: var(--white);
+      border: none;
+      padding: 10px 24px;
+      font-family: 'Jost', sans-serif;
+      font-size: 9.5px;
+      font-weight: 500;
+      letter-spacing: 2.5px;
+      text-transform: uppercase;
+      cursor: pointer;
+      text-decoration: none;
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      transition: background 0.3s;
+    }
+    .insta-follow-btn:hover { background: var(--ink2); }
+    @media (max-width: 1024px) {
+      .insta-post { flex: 0 0 calc(50% - 2px); }
+      .insta-nav.prev { left: -12px; }
+      .insta-nav.next { right: -12px; }
+    }
+    @media (max-width: 640px) {
+      .insta-post { flex: 0 0 calc(100% - 2px); }
+    }
     /* ── NEWSLETTER ── */
     .newsletter-section {
       background: var(--ink);
@@ -1394,46 +1514,82 @@
     </div>
   </div>
 </div>
-<!-- TESTIMONIALS -->
+<!-- INSTAGRAM CAROUSEL -->
 <div class="section-wrap bg-white">
   <div class="container">
-    <div class="section-label"><div class="section-label-line"></div><span class="section-label-text">Experiências reais</span></div>
-    <h2 class="section-title" style="margin-bottom:56px;">O que dizem<br><em>nossas clientes</em></h2>
-    <div class="testimonials-grid">
-      <div class="testimonial-card">
-        <div class="stars">★ ★ ★ ★ ★</div>
-        <p class="testimonial-text">"Finalmente encontrei roupas que realmente vestem bem e com marcas que eu admirava de longe. O vestido Calvin Klein chegou impecável, em dez dias, em São Paulo."</p>
-        <div class="testimonial-author">
-          <div class="testimonial-avatar">👩🏻</div>
+    <div class="section-label"><div class="section-label-line"></div><span class="section-label-text">Instagram</span></div>
+    <div class="insta-header">
+      <div>
+        <h2 class="section-title" style="margin-bottom:10px;">Nosso <em>feed</em></h2>
+        <div class="insta-handle" style="margin-top:16px;">
+          <div class="insta-handle-icon">📷</div>
           <div>
-            <div class="testimonial-name">Fernanda O.</div>
-            <div class="testimonial-city">São Paulo, SP</div>
+            <div class="insta-handle-name">@bellacurvestore</div>
+            <div class="insta-handle-sub">Siga para novidades e lançamentos</div>
           </div>
         </div>
       </div>
-      <div class="testimonial-card">
-        <div class="stars">★ ★ ★ ★ ★</div>
-        <p class="testimonial-text">"Sempre quis ter peças Ralph Lauren no meu guarda-roupa, mas nunca encontrava no meu tamanho. A Bella Curve resolveu isso com elegância e atenção que não esperava."</p>
-        <div class="testimonial-author">
-          <div class="testimonial-avatar">👩🏾</div>
-          <div>
-            <div class="testimonial-name">Carla M.</div>
-            <div class="testimonial-city">Rio de Janeiro, RJ</div>
-          </div>
-        </div>
-      </div>
-      <div class="testimonial-card">
-        <div class="stars">★ ★ ★ ★ ★</div>
-        <p class="testimonial-text">"O guia de tamanhos é preciso e o atendimento via WhatsApp foi impecável. Recebi meu pedido Tommy Hilfiger perfeito. É outra experiência de compra — sofisticada de verdade."</p>
-        <div class="testimonial-author">
-          <div class="testimonial-avatar">👩🏽</div>
-          <div>
-            <div class="testimonial-name">Juliana R.</div>
-            <div class="testimonial-city">Belo Horizonte, MG</div>
-          </div>
-        </div>
-      </div>
+      <a href="https://instagram.com/bellacurvestore" target="_blank" rel="noopener" class="insta-follow-btn">
+        <span>📷</span> Seguir no Instagram
+      </a>
     </div>
+    <div class="insta-carousel-wrap">
+      <button class="insta-nav prev" onclick="instaNav(-1)" aria-label="Anterior">‹</button>
+      <div class="insta-track-outer">
+        <div class="insta-track" id="insta-track">
+          <!-- Post 1 -->
+          <div class="insta-post" onclick="window.open('https://instagram.com/bellacurvestore','_blank')">
+            <img class="insta-post-img" src="https://raw.githubusercontent.com/nanicunha/bellacurve.store/main/MK_VestidoMidiSignature.png" alt="Michael Kors Vestido"
+              onerror="this.parentElement.innerHTML='<div class=\'insta-post-placeholder\'><div class=\'insta-post-placeholder-icon\'>👗</div><div class=\'insta-post-placeholder-brand\'>Michael Kors</div></div>'" />
+            <div class="insta-post-overlay"><span class="insta-post-icon">📷</span></div>
+          </div>
+          <!-- Post 2 -->
+          <div class="insta-post" onclick="window.open('https://instagram.com/bellacurvestore','_blank')">
+            <img class="insta-post-img" src="https://raw.githubusercontent.com/nanicunha/bellacurve.store/main/CalvinKleinBlazerMinimalistaCK.png" alt="Calvin Klein Blazer"
+              onerror="this.parentElement.innerHTML='<div class=\'insta-post-placeholder\'><div class=\'insta-post-placeholder-icon\'>🥻</div><div class=\'insta-post-placeholder-brand\'>Calvin Klein</div></div>'" />
+            <div class="insta-post-overlay"><span class="insta-post-icon">📷</span></div>
+          </div>
+          <!-- Post 3 -->
+          <div class="insta-post" onclick="window.open('https://instagram.com/bellacurvestore','_blank')">
+            <img class="insta-post-img" src="https://raw.githubusercontent.com/nanicunha/bellacurve.store/main/LevisJeans721HighRise.png" alt="Levis Jeans"
+              onerror="this.parentElement.innerHTML='<div class=\'insta-post-placeholder\'><div class=\'insta-post-placeholder-icon\'>🧵</div><div class=\'insta-post-placeholder-brand\'>Levi\'s</div></div>'" />
+            <div class="insta-post-overlay"><span class="insta-post-icon">📷</span></div>
+          </div>
+          <!-- Post 4 -->
+          <div class="insta-post" onclick="window.open('https://instagram.com/bellacurvestore','_blank')">
+            <img class="insta-post-img" src="https://raw.githubusercontent.com/nanicunha/bellacurve.store/main/MichaelKorsBolsaSelmaPlus.png" alt="Michael Kors Bolsa"
+              onerror="this.parentElement.innerHTML='<div class=\'insta-post-placeholder\'><div class=\'insta-post-placeholder-icon\'>👜</div><div class=\'insta-post-placeholder-brand\'>Michael Kors</div></div>'" />
+            <div class="insta-post-overlay"><span class="insta-post-icon">📷</span></div>
+          </div>
+          <!-- Post 5 -->
+          <div class="insta-post" onclick="window.open('https://instagram.com/bellacurvestore','_blank')">
+            <img class="insta-post-img" src="https://raw.githubusercontent.com/nanicunha/bellacurve.store/main/NikeLeggingTempoLuxe.png" alt="Nike Legging"
+              onerror="this.parentElement.innerHTML='<div class=\'insta-post-placeholder\'><div class=\'insta-post-placeholder-icon\'>⚡</div><div class=\'insta-post-placeholder-brand\'>Nike</div></div>'" />
+            <div class="insta-post-overlay"><span class="insta-post-icon">📷</span></div>
+          </div>
+          <!-- Post 6 -->
+          <div class="insta-post" onclick="window.open('https://instagram.com/bellacurvestore','_blank')">
+            <img class="insta-post-img" src="https://raw.githubusercontent.com/nanicunha/bellacurve.store/main/RalphLaurenSaiaMidiLinhoVerao.png" alt="Ralph Lauren Saia"
+              onerror="this.parentElement.innerHTML='<div class=\'insta-post-placeholder\'><div class=\'insta-post-placeholder-icon\'>☀️</div><div class=\'insta-post-placeholder-brand\'>Ralph Lauren</div></div>'" />
+            <div class="insta-post-overlay"><span class="insta-post-icon">📷</span></div>
+          </div>
+          <!-- Post 7 -->
+          <div class="insta-post" onclick="window.open('https://instagram.com/bellacurvestore','_blank')">
+            <img class="insta-post-img" src="https://raw.githubusercontent.com/nanicunha/bellacurve.store/main/TommyHilfigerCalcaChinoClassica.png" alt="Tommy Hilfiger Calça"
+              onerror="this.parentElement.innerHTML='<div class=\'insta-post-placeholder\'><div class=\'insta-post-placeholder-icon\'>👖</div><div class=\'insta-post-placeholder-brand\'>Tommy Hilfiger</div></div>'" />
+            <div class="insta-post-overlay"><span class="insta-post-icon">📷</span></div>
+          </div>
+          <!-- Post 8 -->
+          <div class="insta-post" onclick="window.open('https://instagram.com/bellacurvestore','_blank')">
+            <img class="insta-post-img" src="https://raw.githubusercontent.com/nanicunha/bellacurve.store/main/NikeConjuntoSportChic.png" alt="Nike Conjunto"
+              onerror="this.parentElement.innerHTML='<div class=\'insta-post-placeholder\'><div class=\'insta-post-placeholder-icon\'>🏃</div><div class=\'insta-post-placeholder-brand\'>Nike</div></div>'" />
+            <div class="insta-post-overlay"><span class="insta-post-icon">📷</span></div>
+          </div>
+        </div>
+      </div>
+      <button class="insta-nav next" onclick="instaNav(1)" aria-label="Próximo">›</button>
+    </div>
+    <div class="insta-dots" id="insta-dots"></div>
   </div>
 </div>
 <!-- NEWSLETTER -->
@@ -1542,12 +1698,12 @@
     { id: 2,  brand: 'Calvin Klein',   brandKey: 'calvin-klein',  name: 'Blazer Minimalista CK',      sizes: '1X–5X',   price: 589, usd: 107, icon: '🥻', img: BASE + 'CalvinKleinBlazerMinimalistaCK.png',         badge: 'Curadoria',       badgeType: '' },
     { id: 3,  brand: 'Ralph Lauren',   brandKey: 'ralph-lauren',  name: 'Polo Oxford Premium',        sizes: '1X–4X',   price: 449, usd:  82, icon: '👚', img: BASE + 'PoloOxfordPremium.png',                      badge: null,              badgeType: '' },
     { id: 4,  brand: 'Tommy Hilfiger', brandKey: 'tommy',         name: 'Calça Chino Clássica',       sizes: '14W–28W', price: 389, usd:  71, icon: '👖', img: BASE + 'TommyHilfigerCalcaChinoClassica.png',        badge: 'Novo',            badgeType: '' },
-    { id: 5,  brand: 'Levi\'s',        brandKey: 'levis',         name: 'Jeans 721 High Rise',        sizes: '16–26',   price: 349, usd:  63, icon: '🧵', img: BASE + 'LevisJeans721HighRise.png',                  badge: null,              badgeType: '' },
+    { id: 5,  brand: "Levi's",          brandKey: 'levis',         name: 'Jeans 721 High Rise',        sizes: '16–26',   price: 349, usd:  63, icon: '🧵', img: BASE + 'LevisJeans721HighRise.png',                  badge: null,              badgeType: '' },
     { id: 6,  brand: 'Michael Kors',   brandKey: 'michael-kors',  name: 'Bolsa Selma Plus',           sizes: 'Único',   price: 899, usd: 163, icon: '👜', img: BASE + 'MichaelKorsBolsaSelmaPlus.png',              badge: 'Edição Limitada', badgeType: 'limited' },
     { id: 7,  brand: 'Calvin Klein',   brandKey: 'calvin-klein',  name: 'Camiseta Essential Stretch', sizes: '1X–5X',   price: 289, usd:  52, icon: '👕', img: BASE + 'CamisetaEssentialStretch.png',               badge: 'Curadoria',       badgeType: '' },
     { id: 8,  brand: 'Nike',           brandKey: 'nike',          name: 'Legging Tempo Luxe',         sizes: '1X–4X',   price: 329, usd:  60, icon: '⚡', img: BASE + 'NikeLeggingTempoLuxe.png',                   badge: null,              badgeType: '' },
     { id: 9,  brand: 'Ralph Lauren',   brandKey: 'ralph-lauren',  name: 'Saia Midi Linho Verão',      sizes: '1X–3X',   price: 519, usd:  94, icon: '☀️', img: BASE + 'RalphLaurenSaiaMidiLinhoVerao.png',          badge: 'Novo',            badgeType: '' },
-    { id: 10, brand: 'Levi\'s',        brandKey: 'levis',         name: 'Jaqueta Trucker Vintage',    sizes: '1X–4X',   price: 499, usd:  91, icon: '🧥', img: BASE + 'LevisJaquetaTruckerVintage.png',             badge: null,              badgeType: '' },
+    { id: 10, brand: "Levi's",          brandKey: 'levis',         name: 'Jaqueta Trucker Vintage',    sizes: '1X–4X',   price: 499, usd:  91, icon: '🧥', img: BASE + 'LevisJaquetaTruckerVintage.png',             badge: null,              badgeType: '' },
     { id: 11, brand: 'Tommy Hilfiger', brandKey: 'tommy',         name: 'Vestido Listrado Náutico',   sizes: '1X–4X',   price: 469, usd:  85, icon: '⚓', img: BASE + 'VestidoListradoNautico.png',                 badge: 'Curadoria',       badgeType: '' },
     { id: 12, brand: 'Nike',           brandKey: 'nike',          name: 'Conjunto Sport Chic',        sizes: '1X–5X',   price: 579, usd: 105, icon: '🏃', img: BASE + 'NikeConjuntoSportChic.png',                  badge: 'Edição Limitada', badgeType: 'limited' },
   ];
@@ -1647,6 +1803,53 @@
     showToast('Bem-vinda à lista exclusiva da Bella Curve.');
     e.target.reset();
   }
+
+  // ── INSTAGRAM CAROUSEL ──
+  (function() {
+    var track, totalPosts, visiblePosts, totalPages, currentPage = 0;
+    function getVisible() {
+      return window.innerWidth <= 640 ? 1 : window.innerWidth <= 1024 ? 2 : 4;
+    }
+    function initInsta() {
+      track = document.getElementById('insta-track');
+      if (!track) return;
+      totalPosts = track.children.length;
+      visiblePosts = getVisible();
+      totalPages = Math.ceil(totalPosts / visiblePosts);
+      currentPage = 0;
+      renderDots();
+      updateTrack();
+    }
+    function renderDots() {
+      var dotsEl = document.getElementById('insta-dots');
+      if (!dotsEl) return;
+      dotsEl.innerHTML = '';
+      for (var i = 0; i < totalPages; i++) {
+        var d = document.createElement('div');
+        d.className = 'insta-dot' + (i === 0 ? ' active' : '');
+        d.setAttribute('data-i', i);
+        d.onclick = function() { currentPage = parseInt(this.getAttribute('data-i')); updateTrack(); };
+        dotsEl.appendChild(d);
+      }
+    }
+    function updateTrack() {
+      if (!track) return;
+      var postWidth = 100 / visiblePosts;
+      var offset = currentPage * visiblePosts * postWidth;
+      track.style.transform = 'translateX(-' + offset + '%)';
+      document.querySelectorAll('.insta-dot').forEach(function(d, i) {
+        d.classList.toggle('active', i === currentPage);
+      });
+    }
+    window.instaNav = function(dir) {
+      currentPage = (currentPage + dir + totalPages) % totalPages;
+      updateTrack();
+    };
+    document.addEventListener('DOMContentLoaded', initInsta);
+    window.addEventListener('resize', initInsta);
+    initInsta();
+  })();
+
   renderProducts();
 </script>
 </body>
