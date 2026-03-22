@@ -7,7 +7,6 @@
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300&family=Jost:wght@300;400;500&display=swap" rel="stylesheet" />
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
-
     :root {
       --ivory:    #f9f6f1;
       --ivory2:   #f2ede5;
@@ -23,9 +22,7 @@
       --gold-lt:  #d4b07a;
       --white:    #ffffff;
     }
-
     html { scroll-behavior: smooth; }
-
     body {
       font-family: 'Jost', sans-serif;
       background: var(--ivory);
@@ -34,7 +31,6 @@
       overflow-x: hidden;
       font-weight: 300;
     }
-
     /* ── TOP BAR ── */
     .top-bar {
       background: var(--ink);
@@ -49,7 +45,6 @@
     .top-bar-inner { display: flex; align-items: center; justify-content: center; gap: 0; flex-wrap: wrap; }
     .top-bar-item { padding: 0 20px; border-right: 1px solid #3a3730; }
     .top-bar-item:last-child { border-right: none; }
-
     /* ── HEADER ── */
     header {
       background: var(--white);
@@ -77,7 +72,6 @@
       text-decoration: none;
     }
     .logo em { font-style: normal; color: var(--gold); }
-
     nav { display: flex; gap: 36px; }
     nav a {
       color: var(--muted);
@@ -89,7 +83,6 @@
       transition: color 0.3s;
     }
     nav a:hover { color: var(--ink); }
-
     .header-actions { display: flex; align-items: center; gap: 24px; }
     .header-actions button {
       background: none;
@@ -113,7 +106,6 @@
       display: flex; align-items: center; justify-content: center;
       letter-spacing: 0;
     }
-
     /* ── HERO ── */
     .hero {
       position: relative;
@@ -207,7 +199,6 @@
       padding-left: 20px;
     }
     .hero-ctas { display: flex; gap: 14px; flex-wrap: wrap; }
-
     .btn-primary {
       background: var(--ink);
       color: var(--white);
@@ -243,7 +234,6 @@
       text-decoration: none;
     }
     .btn-outline:hover { border-color: var(--ink); }
-
     .hero-right-content { position: relative; z-index: 1; max-width: 360px; }
     .hero-quote {
       font-family: 'Cormorant Garamond', serif;
@@ -282,7 +272,6 @@
       text-transform: uppercase;
       color: var(--taupe2);
     }
-
     /* ── MARQUEE ── */
     .marquee-strip {
       background: var(--ivory3);
@@ -319,14 +308,12 @@
     }
     .marquee-brand:hover { color: var(--ink); }
     .marquee-dot { color: var(--gold); font-size: 5px; }
-
     /* ── SECTION BASE ── */
     .section-wrap { padding: 112px 0; }
     .section-wrap.bg-ivory2 { background: var(--ivory2); }
     .section-wrap.bg-ink { background: var(--ink); }
     .section-wrap.bg-white { background: var(--white); }
     .container { max-width: 1360px; margin: 0 auto; padding: 0 64px; }
-
     .section-label {
       display: flex;
       align-items: center;
@@ -352,7 +339,6 @@
     .section-title em { font-style: italic; color: var(--gold); }
     .section-title.on-dark { color: var(--ivory); }
     .section-title.on-dark em { color: var(--gold-lt); }
-
     /* ── CURADORIA SECTION ── */
     .curadoria-grid {
       display: grid;
@@ -434,7 +420,6 @@
       margin-bottom: 6px;
     }
     .pillar-text { font-size: 13px; color: var(--muted); line-height: 1.8; font-weight: 300; }
-
     /* ── STATEMENT BAR ── */
     .statement-bar {
       background: var(--ink2);
@@ -454,7 +439,6 @@
       line-height: 1.6;
     }
     .statement-text span { color: var(--gold-lt); }
-
     /* ── PRODUCTS ── */
     .filters {
       display: flex;
@@ -481,7 +465,6 @@
       color: var(--ink);
       border-bottom-color: var(--ink);
     }
-
     .product-grid {
       display: grid;
       grid-template-columns: repeat(4, 1fr);
@@ -603,9 +586,7 @@
       transition: all 0.3s;
     }
     .add-to-cart:hover { background: var(--ink); color: var(--white); border-color: var(--ink); }
-
     .section-cta { text-align: center; margin-top: 56px; }
-
     /* ── BRANDS SECTION ── */
     .brands-intro {
       display: grid;
@@ -620,7 +601,6 @@
       line-height: 1.9;
       font-weight: 300;
     }
-
     .brand-group { margin-bottom: 56px; }
     .brand-group:last-child { margin-bottom: 0; }
     .brand-group-label {
@@ -663,7 +643,6 @@
       transition: opacity 0.3s;
     }
     .brand-name-item:hover::after { opacity: 1; }
-
     /* ── SHIPPING ── */
     .shipping-grid {
       display: grid;
@@ -708,7 +687,6 @@
       color: var(--taupe);
     }
     .ship-time { font-size: 9px; letter-spacing: 2px; text-transform: uppercase; color: var(--muted); }
-
     .ship-features { display: flex; flex-direction: column; gap: 0; }
     .ship-feat {
       display: flex;
@@ -743,7 +721,6 @@
       color: var(--muted);
       text-transform: uppercase;
     }
-
     /* ── SIZE GUIDE ── */
     .size-table-wrap { overflow-x: auto; }
     table { width: 100%; border-collapse: collapse; font-size: 13px; }
@@ -765,7 +742,6 @@
     }
     tr:last-child td { border-bottom: none; }
     tr:hover td { background: var(--ivory2); }
-
     /* ── EDITORIAL STRIPS ── */
     .editorial-grid {
       display: grid;
@@ -802,7 +778,6 @@
       font-weight: 300;
     }
     .editorial-card.dark .editorial-body { color: var(--taupe2); }
-
     /* ── TESTIMONIALS ── */
     .testimonials-grid {
       display: grid;
@@ -835,7 +810,6 @@
     }
     .testimonial-name { font-size: 12px; font-weight: 500; color: var(--ink); letter-spacing: 0.5px; }
     .testimonial-city { font-size: 10px; color: var(--taupe2); letter-spacing: 1px; margin-top: 2px; }
-
     /* ── NEWSLETTER ── */
     .newsletter-section {
       background: var(--ink);
@@ -892,7 +866,6 @@
       white-space: nowrap;
     }
     .newsletter-form button:hover { background: var(--gold-lt); }
-
     /* ── FOOTER ── */
     footer {
       background: var(--white);
@@ -963,7 +936,6 @@
       letter-spacing: 1px;
       text-transform: uppercase;
     }
-
     /* ── CART SIDEBAR ── */
     .cart-overlay {
       position: fixed;
@@ -1046,7 +1018,6 @@
     }
     .cart-checkout:hover { background: var(--ink2); }
     .cart-note { font-size: 11px; color: var(--taupe2); text-align: center; margin-top: 14px; font-weight: 300; }
-
     /* ── WHATSAPP ── */
     .whatsapp-btn {
       position: fixed;
@@ -1074,7 +1045,6 @@
     @media (max-width: 480px) {
       .whatsapp-btn { bottom: 20px; right: 20px; }
     }
-
     /* ── TOAST ── */
     .toast {
       position: fixed;
@@ -1093,7 +1063,6 @@
       border-left: 2px solid var(--gold);
     }
     .toast.show { transform: translateX(-50%) translateY(0); }
-
     /* ── RESPONSIVE ── */
     @media (max-width: 1024px) {
       .hero { grid-template-columns: 1fr; }
@@ -1116,7 +1085,6 @@
   </style>
 </head>
 <body>
-
 <!-- TOP BAR -->
 <div class="top-bar">
   <div class="top-bar-inner">
@@ -1125,7 +1093,6 @@
     <span class="top-bar-item">Parcelamento em até 12x · Frete de Orlando ao Brasil</span>
   </div>
 </div>
-
 <!-- HEADER -->
 <header>
   <div class="header-inner">
@@ -1145,7 +1112,6 @@
     </div>
   </div>
 </header>
-
 <!-- HERO -->
 <section class="hero">
   <div class="hero-left">
@@ -1186,7 +1152,6 @@
     </div>
   </div>
 </section>
-
 <!-- MARQUEE BRANDS -->
 <div class="marquee-strip">
   <div class="marquee-track">
@@ -1194,7 +1159,6 @@
     <div class="marquee-item"><span class="marquee-brand">Michael Kors</span><span class="marquee-dot">●</span><span class="marquee-brand">Calvin Klein</span><span class="marquee-dot">●</span><span class="marquee-brand">Ralph Lauren</span><span class="marquee-dot">●</span><span class="marquee-brand">Tommy Hilfiger</span><span class="marquee-dot">●</span><span class="marquee-brand">Guess</span><span class="marquee-dot">●</span><span class="marquee-brand">DKNY</span><span class="marquee-dot">●</span><span class="marquee-brand">Coach</span><span class="marquee-dot">●</span><span class="marquee-brand">Kate Spade</span><span class="marquee-dot">●</span><span class="marquee-brand">Levi's</span><span class="marquee-dot">●</span><span class="marquee-brand">Banana Republic</span><span class="marquee-dot">●</span><span class="marquee-brand">Nike</span><span class="marquee-dot">●</span><span class="marquee-brand">Adidas</span><span class="marquee-dot">●</span></div>
   </div>
 </div>
-
 <!-- CURADORIA SECTION -->
 <div id="curadoria" class="section-wrap bg-white">
   <div class="container">
@@ -1239,18 +1203,15 @@
     </div>
   </div>
 </div>
-
 <!-- STATEMENT -->
 <div class="statement-bar">
   <p class="statement-text">Uma curadoria pensada para mulheres <span>que sabem o valor de se vestir bem.</span></p>
 </div>
-
 <!-- COLLECTION -->
 <div id="colecao" class="section-wrap bg-ivory2">
   <div class="container">
     <div class="section-label"><div class="section-label-line"></div><span class="section-label-text">Edição atual</span></div>
     <h2 class="section-title" style="margin-bottom:48px;">Peças <em>selecionadas</em></h2>
-
     <div class="filters" id="filters">
       <button class="filter-btn active" onclick="filterProducts('all', this)">Ver todas</button>
       <button class="filter-btn" onclick="filterProducts('michael-kors', this)">Michael Kors</button>
@@ -1260,15 +1221,12 @@
       <button class="filter-btn" onclick="filterProducts('levis', this)">Levi's</button>
       <button class="filter-btn" onclick="filterProducts('nike', this)">Nike</button>
     </div>
-
     <div class="product-grid" id="product-grid"></div>
-
     <div class="section-cta">
       <a href="#" class="btn-outline" style="display:inline-block;">Ver edição completa</a>
     </div>
   </div>
 </div>
-
 <!-- EDITORIAL CARDS -->
 <div class="section-wrap" style="padding:0; background:var(--white);">
   <div class="editorial-grid">
@@ -1289,7 +1247,6 @@
     </div>
   </div>
 </div>
-
 <!-- BRANDS SECTION -->
 <div id="marcas" class="section-wrap bg-ink">
   <div class="container">
@@ -1302,7 +1259,6 @@
         <p>Trabalhamos com marcas americanas reconhecidas e desejadas — cada uma escolhida pelo seu alinhamento com os valores de elegância, qualidade e moda plus size que a Bella Curve representa.</p>
       </div>
     </div>
-
     <div class="brand-group">
       <div class="brand-group-label">Marcas Premium</div>
       <div class="brand-names">
@@ -1317,7 +1273,6 @@
         <div class="brand-name-item">Steve Madden</div>
       </div>
     </div>
-
     <div class="brand-group">
       <div class="brand-group-label">Denim &amp; Clássicos</div>
       <div class="brand-names">
@@ -1327,7 +1282,6 @@
         <div class="brand-name-item">Banana Republic</div>
       </div>
     </div>
-
     <div class="brand-group">
       <div class="brand-group-label">Lifestyle &amp; Sport Chic</div>
       <div class="brand-names">
@@ -1338,7 +1292,6 @@
     </div>
   </div>
 </div>
-
 <!-- SHIPPING -->
 <div id="envio" class="section-wrap bg-white">
   <div class="container">
@@ -1346,7 +1299,6 @@
       <div>
         <div class="section-label"><div class="section-label-line"></div><span class="section-label-text">Logística</span></div>
         <h2 class="section-title">De <em>Orlando</em><br>ao Brasil</h2>
-
         <div class="ship-route">
           <div class="ship-city-block">
             <span class="ship-flag">🇺🇸</span>
@@ -1363,9 +1315,7 @@
             <div class="ship-city-sub">Todo o território</div>
           </div>
         </div>
-
         <p style="font-size:13px;color:var(--muted);line-height:1.9;font-weight:300;margin-bottom:28px;">Atendimento em português, rastreio em tempo real e suporte dedicado do momento da compra até a entrega na sua porta.</p>
-
         <div class="ship-payments">
           <span class="payment-chip">Pix</span>
           <span class="payment-chip">Boleto</span>
@@ -1375,7 +1325,6 @@
           <span class="payment-chip">12x sem juros</span>
         </div>
       </div>
-
       <div class="ship-features">
         <div class="ship-feat">
           <span class="ship-feat-icon">📦</span>
@@ -1416,7 +1365,6 @@
     </div>
   </div>
 </div>
-
 <!-- SIZE GUIDE -->
 <div id="tamanhos" class="section-wrap bg-ivory2">
   <div class="container">
@@ -1446,7 +1394,6 @@
     </div>
   </div>
 </div>
-
 <!-- TESTIMONIALS -->
 <div class="section-wrap bg-white">
   <div class="container">
@@ -1489,7 +1436,6 @@
     </div>
   </div>
 </div>
-
 <!-- NEWSLETTER -->
 <div class="newsletter-section">
   <p class="newsletter-eyebrow">Lista exclusiva</p>
@@ -1500,7 +1446,6 @@
     <button type="submit">Quero acesso</button>
   </form>
 </div>
-
 <!-- FOOTER -->
 <footer>
   <div class="container">
@@ -1558,7 +1503,6 @@
     </div>
   </div>
 </footer>
-
 <!-- CART SIDEBAR -->
 <div class="cart-overlay" id="cart-overlay" onclick="toggleCart()"></div>
 <div class="cart-sidebar" id="cart-sidebar">
@@ -1581,7 +1525,6 @@
     <p class="cart-note">Frete calculado no checkout · Parcelamos em 12x</p>
   </div>
 </div>
-
 <!-- WHATSAPP BUTTON -->
 <a href="https://wa.me/14072023758" target="_blank" rel="noopener noreferrer" class="whatsapp-btn" aria-label="Falar pelo WhatsApp">
   <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="26" height="26">
@@ -1589,30 +1532,27 @@
   </svg>
   <span class="whatsapp-label">Fale conosco</span>
 </a>
-
 <!-- TOAST -->
 <div class="toast" id="toast"></div>
-
 <script>
-  const BASE = 'https://cdn.jsdelivr.net/gh/nanicunha/bellacurve.store@main/';
+  // ✅ CORRECTED: using raw.githubusercontent.com (no CDN cache issues)
+  const BASE = 'https://raw.githubusercontent.com/nanicunha/bellacurve.store/main/';
   const products = [
-    { id: 1,  brand: 'Michael Kors',  brandKey: 'michael-kors',  name: 'Vestido Midi Signature',      sizes: '1X–4X',   price: 689,  usd: 125, icon: '👗', img: BASE + 'MK_VestidoMidiSignature.png',                    badge: 'Edição Limitada', badgeType: 'limited' },
-    { id: 2,  brand: 'Calvin Klein',  brandKey: 'calvin-klein',  name: 'Blazer Minimalista CK',       sizes: '1X–5X',   price: 589,  usd: 107, icon: '🥻', img: BASE + 'CalvinKleinBlazerMinimalistaCK.png',             badge: 'Curadoria',       badgeType: '' },
-    { id: 3,  brand: 'Ralph Lauren',  brandKey: 'ralph-lauren',  name: 'Polo Oxford Premium',         sizes: '1X–4X',   price: 449,  usd:  82, icon: '👚', img: BASE + 'PoloOxfordPremium.png',                          badge: null,              badgeType: '' },
-    { id: 4,  brand: 'Tommy Hilfiger',brandKey: 'tommy',         name: 'Calça Chino Clássica',        sizes: '14W–28W', price: 389,  usd:  71, icon: '👖', img: BASE + 'TommyHilfigerCalcaChinoClassica.png',            badge: 'Novo',          badgeType: '' },
-    { id: 5,  brand: 'Levi\'s',       brandKey: 'levis',         name: 'Jeans 721 High Rise',         sizes: '16–26',   price: 349,  usd:  63, icon: '🧵', img: BASE + 'LevisJeans721HighRise.png',                      badge: null,              badgeType: '' },
-    { id: 6,  brand: 'Michael Kors',  brandKey: 'michael-kors',  name: 'Bolsa Selma Plus',            sizes: 'Único',   price: 899,  usd: 163, icon: '👜', img: BASE + 'MichaelKorsBolsaSelmaPlus.png',                  badge: 'Edição Limitada', badgeType: 'limited' },
-    { id: 7,  brand: 'Calvin Klein',  brandKey: 'calvin-klein',  name: 'Camiseta Essential Stretch',  sizes: '1X–5X',   price: 289,  usd:  52, icon: '👕', img: BASE + 'CamisetaEssentialStretch.png',                   badge: 'Curadoria',       badgeType: '' },
-    { id: 8,  brand: 'Nike',          brandKey: 'nike',          name: 'Legging Tempo Luxe',          sizes: '1X–4X',   price: 329,  usd:  60, icon: '⚡', img: BASE + 'NikeLeggingTempoLuxe.png',                        badge: null,              badgeType: '' },
-    { id: 9,  brand: 'Ralph Lauren',  brandKey: 'ralph-lauren',  name: 'Saia Midi Linho Verão',       sizes: '1X–3X',   price: 519,  usd:  94, icon: '☀️', img: BASE + 'RalphLaurenSaiaMidiLinhoVerao.png',              badge: 'Novo',          badgeType: '' },
-    { id: 10, brand: 'Levi\'s',       brandKey: 'levis',         name: 'Jaqueta Trucker Vintage',     sizes: '1X–4X',   price: 499,  usd:  91, icon: '🧥', img: BASE + 'LevisJaquetaTruckerVintage.png',                 badge: null,              badgeType: '' },
-    { id: 11, brand: 'Tommy Hilfiger',brandKey: 'tommy',         name: 'Vestido Listrado Náutico',    sizes: '1X–4X',   price: 469,  usd:  85, icon: '⚓', img: BASE + 'VestidoListradoNautico.png',                      badge: 'Curadoria',       badgeType: '' },
-    { id: 12, brand: 'Nike',          brandKey: 'nike',          name: 'Conjunto Sport Chic',         sizes: '1X–5X',   price: 579,  usd: 105, icon: '🏃', img: BASE + 'NikeConjuntoSportChic.png',                      badge: 'Edição Limitada', badgeType: 'limited' },
+    { id: 1,  brand: 'Michael Kors',   brandKey: 'michael-kors',  name: 'Vestido Midi Signature',     sizes: '1X–4X',   price: 689, usd: 125, icon: '👗', img: BASE + 'MK_VestidoMidiSignature.png',                badge: 'Edição Limitada', badgeType: 'limited' },
+    { id: 2,  brand: 'Calvin Klein',   brandKey: 'calvin-klein',  name: 'Blazer Minimalista CK',      sizes: '1X–5X',   price: 589, usd: 107, icon: '🥻', img: BASE + 'CalvinKleinBlazerMinimalistaCK.png',         badge: 'Curadoria',       badgeType: '' },
+    { id: 3,  brand: 'Ralph Lauren',   brandKey: 'ralph-lauren',  name: 'Polo Oxford Premium',        sizes: '1X–4X',   price: 449, usd:  82, icon: '👚', img: BASE + 'PoloOxfordPremium.png',                      badge: null,              badgeType: '' },
+    { id: 4,  brand: 'Tommy Hilfiger', brandKey: 'tommy',         name: 'Calça Chino Clássica',       sizes: '14W–28W', price: 389, usd:  71, icon: '👖', img: BASE + 'TommyHilfigerCalcaChinoClassica.png',        badge: 'Novo',            badgeType: '' },
+    { id: 5,  brand: 'Levi\'s',        brandKey: 'levis',         name: 'Jeans 721 High Rise',        sizes: '16–26',   price: 349, usd:  63, icon: '🧵', img: BASE + 'LevisJeans721HighRise.png',                  badge: null,              badgeType: '' },
+    { id: 6,  brand: 'Michael Kors',   brandKey: 'michael-kors',  name: 'Bolsa Selma Plus',           sizes: 'Único',   price: 899, usd: 163, icon: '👜', img: BASE + 'MichaelKorsBolsaSelmaPlus.png',              badge: 'Edição Limitada', badgeType: 'limited' },
+    { id: 7,  brand: 'Calvin Klein',   brandKey: 'calvin-klein',  name: 'Camiseta Essential Stretch', sizes: '1X–5X',   price: 289, usd:  52, icon: '👕', img: BASE + 'CamisetaEssentialStretch.png',               badge: 'Curadoria',       badgeType: '' },
+    { id: 8,  brand: 'Nike',           brandKey: 'nike',          name: 'Legging Tempo Luxe',         sizes: '1X–4X',   price: 329, usd:  60, icon: '⚡', img: BASE + 'NikeLeggingTempoLuxe.png',                   badge: null,              badgeType: '' },
+    { id: 9,  brand: 'Ralph Lauren',   brandKey: 'ralph-lauren',  name: 'Saia Midi Linho Verão',      sizes: '1X–3X',   price: 519, usd:  94, icon: '☀️', img: BASE + 'RalphLaurenSaiaMidiLinhoVerao.png',          badge: 'Novo',            badgeType: '' },
+    { id: 10, brand: 'Levi\'s',        brandKey: 'levis',         name: 'Jaqueta Trucker Vintage',    sizes: '1X–4X',   price: 499, usd:  91, icon: '🧥', img: BASE + 'LevisJaquetaTruckerVintage.png',             badge: null,              badgeType: '' },
+    { id: 11, brand: 'Tommy Hilfiger', brandKey: 'tommy',         name: 'Vestido Listrado Náutico',   sizes: '1X–4X',   price: 469, usd:  85, icon: '⚓', img: BASE + 'VestidoListradoNautico.png',                 badge: 'Curadoria',       badgeType: '' },
+    { id: 12, brand: 'Nike',           brandKey: 'nike',          name: 'Conjunto Sport Chic',        sizes: '1X–5X',   price: 579, usd: 105, icon: '🏃', img: BASE + 'NikeConjuntoSportChic.png',                  badge: 'Edição Limitada', badgeType: 'limited' },
   ];
-
   let cart = [];
   let activeFilter = 'all';
-
   function renderProducts(filter = 'all') {
     const grid = document.getElementById('product-grid');
     const filtered = filter === 'all' ? products : products.filter(p => p.brandKey === filter);
@@ -1643,19 +1583,16 @@
       </div>
     `).join('');
   }
-
   function filterProducts(key, btn) {
     document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
     btn.classList.add('active');
     activeFilter = key;
     renderProducts(key);
   }
-
   function toggleWish(btn) {
     btn.classList.toggle('active');
     btn.textContent = btn.classList.contains('active') ? '♥' : '♡';
   }
-
   function addToCart(id) {
     const product = products.find(p => p.id === id);
     const existing = cart.find(c => c.id === id);
@@ -1663,12 +1600,10 @@
     updateCartUI();
     showToast(`Peça adicionada à sua seleção`);
   }
-
   function removeFromCart(id) {
     cart = cart.filter(c => c.id !== id);
     updateCartUI();
   }
-
   function updateCartUI() {
     const count = cart.reduce((s, c) => s + c.qty, 0);
     document.getElementById('cart-count').textContent = count;
@@ -1692,31 +1627,26 @@
       `).join('');
     }
   }
-
   function toggleCart() {
     document.getElementById('cart-overlay').classList.toggle('open');
     document.getElementById('cart-sidebar').classList.toggle('open');
   }
-
   function checkout() {
     if (cart.length === 0) { showToast('Sua seleção está vazia.'); return; }
     toggleCart();
     showToast('Redirecionando para o checkout...');
   }
-
   function showToast(msg) {
     const t = document.getElementById('toast');
     t.textContent = msg;
     t.classList.add('show');
     setTimeout(() => t.classList.remove('show'), 3200);
   }
-
   function subscribeNewsletter(e) {
     e.preventDefault();
     showToast('Bem-vinda à lista exclusiva da Bella Curve.');
     e.target.reset();
   }
-
   renderProducts();
 </script>
 </body>
