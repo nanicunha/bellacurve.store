@@ -614,8 +614,8 @@
       border-bottom: 1px solid rgba(255,255,255,0.07);
     }
     .brand-names {
-      display: flex;
-      flex-wrap: wrap;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
       gap: 0;
     }
     .brand-name-item {
@@ -623,10 +623,8 @@
       font-size: 22px;
       font-weight: 400;
       color: var(--ivory3);
-      padding: 14px 28px 14px 0;
-      margin-right: 28px;
+      padding: 16px 20px 16px 0;
       border-bottom: 1px solid rgba(255,255,255,0.05);
-      width: 100%;
       display: flex;
       align-items: center;
       justify-content: space-between;
@@ -643,6 +641,12 @@
       transition: opacity 0.3s;
     }
     .brand-name-item:hover::after { opacity: 1; }
+    @media (max-width: 768px) {
+      .brand-names { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 480px) {
+      .brand-names { grid-template-columns: 1fr; }
+    }
     /* ── SHIPPING ── */
     .shipping-grid {
       display: grid;
@@ -779,6 +783,38 @@
     }
     .editorial-card.dark .editorial-body { color: var(--taupe2); }
     /* ── TESTIMONIALS ── */
+    /* ── TESTIMONIALS ── */
+    .testimonials-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 32px;
+    }
+    .testimonial-card {
+      padding: 40px;
+      border: 1px solid var(--beige);
+      background: var(--white);
+    }
+    .stars { color: var(--gold); font-size: 11px; letter-spacing: 3px; margin-bottom: 20px; }
+    .testimonial-text {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 17px;
+      font-style: italic;
+      color: var(--ink3);
+      line-height: 1.8;
+      margin-bottom: 28px;
+      font-weight: 300;
+    }
+    .testimonial-author { display: flex; align-items: center; gap: 14px; }
+    .testimonial-avatar {
+      width: 38px; height: 38px;
+      border-radius: 50%;
+      background: var(--ivory3);
+      border: 1px solid var(--beige);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 15px;
+    }
+    .testimonial-name { font-size: 12px; font-weight: 500; color: var(--ink); letter-spacing: 0.5px; }
+    .testimonial-city { font-size: 10px; color: var(--taupe2); letter-spacing: 1px; margin-top: 2px; }
     /* ── INSTAGRAM CAROUSEL ── */
     .insta-carousel-wrap {
       position: relative;
@@ -1327,24 +1363,74 @@
 <div class="statement-bar">
   <p class="statement-text">Uma curadoria pensada para mulheres <span>que sabem o valor de se vestir bem.</span></p>
 </div>
-<!-- COLLECTION -->
-<div id="colecao" class="section-wrap bg-ivory2">
+<!-- INSTAGRAM CAROUSEL -->
+<div class="section-wrap bg-ivory2">
   <div class="container">
-    <div class="section-label"><div class="section-label-line"></div><span class="section-label-text">Edição atual</span></div>
-    <h2 class="section-title" style="margin-bottom:48px;">Peças <em>selecionadas</em></h2>
-    <div class="filters" id="filters">
-      <button class="filter-btn active" onclick="filterProducts('all', this)">Ver todas</button>
-      <button class="filter-btn" onclick="filterProducts('michael-kors', this)">Michael Kors</button>
-      <button class="filter-btn" onclick="filterProducts('calvin-klein', this)">Calvin Klein</button>
-      <button class="filter-btn" onclick="filterProducts('ralph-lauren', this)">Ralph Lauren</button>
-      <button class="filter-btn" onclick="filterProducts('tommy', this)">Tommy Hilfiger</button>
-      <button class="filter-btn" onclick="filterProducts('levis', this)">Levi's</button>
-      <button class="filter-btn" onclick="filterProducts('nike', this)">Nike</button>
+    <div class="section-label"><div class="section-label-line"></div><span class="section-label-text">Instagram</span></div>
+    <div class="insta-header">
+      <div>
+        <h2 class="section-title" style="margin-bottom:10px;">Nosso <em>feed</em></h2>
+        <div class="insta-handle" style="margin-top:16px;">
+          <div class="insta-handle-icon">📷</div>
+          <div>
+            <div class="insta-handle-name">@bellacurvestore</div>
+            <div class="insta-handle-sub">Siga para novidades e lançamentos</div>
+          </div>
+        </div>
+      </div>
+      <a href="https://instagram.com/bellacurvestore" target="_blank" rel="noopener" class="insta-follow-btn">
+        <span>📷</span> Seguir no Instagram
+      </a>
     </div>
-    <div class="product-grid" id="product-grid"></div>
-    <div class="section-cta">
-      <a href="#" class="btn-outline" style="display:inline-block;">Ver edição completa</a>
+    <div class="insta-carousel-wrap">
+      <button class="insta-nav prev" onclick="instaNav(-1)" aria-label="Anterior">‹</button>
+      <div class="insta-track-outer">
+        <div class="insta-track" id="insta-track">
+          <div class="insta-post" onclick="window.open('https://instagram.com/bellacurvestore','_blank')">
+            <img class="insta-post-img" src="https://raw.githubusercontent.com/nanicunha/bellacurve.store/main/MK_VestidoMidiSignature.png" alt="Michael Kors Vestido" onerror="this.style.display='none';this.parentElement.querySelector('.insta-post-placeholder').style.display='flex'" />
+            <div class="insta-post-placeholder" style="display:none"><div class="insta-post-placeholder-icon">👗</div><div class="insta-post-placeholder-brand">Michael Kors</div></div>
+            <div class="insta-post-overlay"><span class="insta-post-icon">📷</span></div>
+          </div>
+          <div class="insta-post" onclick="window.open('https://instagram.com/bellacurvestore','_blank')">
+            <img class="insta-post-img" src="https://raw.githubusercontent.com/nanicunha/bellacurve.store/main/CalvinKleinBlazerMinimalistaCK.png" alt="Calvin Klein Blazer" onerror="this.style.display='none';this.parentElement.querySelector('.insta-post-placeholder').style.display='flex'" />
+            <div class="insta-post-placeholder" style="display:none"><div class="insta-post-placeholder-icon">🥻</div><div class="insta-post-placeholder-brand">Calvin Klein</div></div>
+            <div class="insta-post-overlay"><span class="insta-post-icon">📷</span></div>
+          </div>
+          <div class="insta-post" onclick="window.open('https://instagram.com/bellacurvestore','_blank')">
+            <img class="insta-post-img" src="https://raw.githubusercontent.com/nanicunha/bellacurve.store/main/LevisJeans721HighRise.png" alt="Levis Jeans" onerror="this.style.display='none';this.parentElement.querySelector('.insta-post-placeholder').style.display='flex'" />
+            <div class="insta-post-placeholder" style="display:none"><div class="insta-post-placeholder-icon">🧵</div><div class="insta-post-placeholder-brand">Levi's</div></div>
+            <div class="insta-post-overlay"><span class="insta-post-icon">📷</span></div>
+          </div>
+          <div class="insta-post" onclick="window.open('https://instagram.com/bellacurvestore','_blank')">
+            <img class="insta-post-img" src="https://raw.githubusercontent.com/nanicunha/bellacurve.store/main/MichaelKorsBolsaSelmaPlus.png" alt="Michael Kors Bolsa" onerror="this.style.display='none';this.parentElement.querySelector('.insta-post-placeholder').style.display='flex'" />
+            <div class="insta-post-placeholder" style="display:none"><div class="insta-post-placeholder-icon">👜</div><div class="insta-post-placeholder-brand">Michael Kors</div></div>
+            <div class="insta-post-overlay"><span class="insta-post-icon">📷</span></div>
+          </div>
+          <div class="insta-post" onclick="window.open('https://instagram.com/bellacurvestore','_blank')">
+            <img class="insta-post-img" src="https://raw.githubusercontent.com/nanicunha/bellacurve.store/main/NikeLeggingTempoLuxe.png" alt="Nike Legging" onerror="this.style.display='none';this.parentElement.querySelector('.insta-post-placeholder').style.display='flex'" />
+            <div class="insta-post-placeholder" style="display:none"><div class="insta-post-placeholder-icon">⚡</div><div class="insta-post-placeholder-brand">Nike</div></div>
+            <div class="insta-post-overlay"><span class="insta-post-icon">📷</span></div>
+          </div>
+          <div class="insta-post" onclick="window.open('https://instagram.com/bellacurvestore','_blank')">
+            <img class="insta-post-img" src="https://raw.githubusercontent.com/nanicunha/bellacurve.store/main/RalphLaurenSaiaMidiLinhoVerao.png" alt="Ralph Lauren Saia" onerror="this.style.display='none';this.parentElement.querySelector('.insta-post-placeholder').style.display='flex'" />
+            <div class="insta-post-placeholder" style="display:none"><div class="insta-post-placeholder-icon">☀️</div><div class="insta-post-placeholder-brand">Ralph Lauren</div></div>
+            <div class="insta-post-overlay"><span class="insta-post-icon">📷</span></div>
+          </div>
+          <div class="insta-post" onclick="window.open('https://instagram.com/bellacurvestore','_blank')">
+            <img class="insta-post-img" src="https://raw.githubusercontent.com/nanicunha/bellacurve.store/main/TommyHilfigerCalcaChinoClassica.png" alt="Tommy Hilfiger" onerror="this.style.display='none';this.parentElement.querySelector('.insta-post-placeholder').style.display='flex'" />
+            <div class="insta-post-placeholder" style="display:none"><div class="insta-post-placeholder-icon">👖</div><div class="insta-post-placeholder-brand">Tommy Hilfiger</div></div>
+            <div class="insta-post-overlay"><span class="insta-post-icon">📷</span></div>
+          </div>
+          <div class="insta-post" onclick="window.open('https://instagram.com/bellacurvestore','_blank')">
+            <img class="insta-post-img" src="https://raw.githubusercontent.com/nanicunha/bellacurve.store/main/NikeConjuntoSportChic.png" alt="Nike Conjunto" onerror="this.style.display='none';this.parentElement.querySelector('.insta-post-placeholder').style.display='flex'" />
+            <div class="insta-post-placeholder" style="display:none"><div class="insta-post-placeholder-icon">🏃</div><div class="insta-post-placeholder-brand">Nike</div></div>
+            <div class="insta-post-overlay"><span class="insta-post-icon">📷</span></div>
+          </div>
+        </div>
+      </div>
+      <button class="insta-nav next" onclick="instaNav(1)" aria-label="Próximo">›</button>
     </div>
+    <div class="insta-dots" id="insta-dots"></div>
   </div>
 </div>
 <!-- EDITORIAL CARDS -->
@@ -1514,82 +1600,46 @@
     </div>
   </div>
 </div>
-<!-- INSTAGRAM CAROUSEL -->
+<!-- TESTIMONIALS -->
 <div class="section-wrap bg-white">
   <div class="container">
-    <div class="section-label"><div class="section-label-line"></div><span class="section-label-text">Instagram</span></div>
-    <div class="insta-header">
-      <div>
-        <h2 class="section-title" style="margin-bottom:10px;">Nosso <em>feed</em></h2>
-        <div class="insta-handle" style="margin-top:16px;">
-          <div class="insta-handle-icon">📷</div>
+    <div class="section-label"><div class="section-label-line"></div><span class="section-label-text">Experiências reais</span></div>
+    <h2 class="section-title" style="margin-bottom:56px;">O que dizem<br><em>nossas clientes</em></h2>
+    <div class="testimonials-grid">
+      <div class="testimonial-card">
+        <div class="stars">★ ★ ★ ★ ★</div>
+        <p class="testimonial-text">"Finalmente encontrei roupas que realmente vestem bem e com marcas que eu admirava de longe. O vestido Calvin Klein chegou impecável, em dez dias, em São Paulo."</p>
+        <div class="testimonial-author">
+          <div class="testimonial-avatar">👩🏻</div>
           <div>
-            <div class="insta-handle-name">@bellacurvestore</div>
-            <div class="insta-handle-sub">Siga para novidades e lançamentos</div>
+            <div class="testimonial-name">Fernanda O.</div>
+            <div class="testimonial-city">São Paulo, SP</div>
           </div>
         </div>
       </div>
-      <a href="https://instagram.com/bellacurvestore" target="_blank" rel="noopener" class="insta-follow-btn">
-        <span>📷</span> Seguir no Instagram
-      </a>
-    </div>
-    <div class="insta-carousel-wrap">
-      <button class="insta-nav prev" onclick="instaNav(-1)" aria-label="Anterior">‹</button>
-      <div class="insta-track-outer">
-        <div class="insta-track" id="insta-track">
-          <!-- Post 1 -->
-          <div class="insta-post" onclick="window.open('https://instagram.com/bellacurvestore','_blank')">
-            <img class="insta-post-img" src="https://raw.githubusercontent.com/nanicunha/bellacurve.store/main/MK_VestidoMidiSignature.png" alt="Michael Kors Vestido"
-              onerror="this.parentElement.innerHTML='<div class=\'insta-post-placeholder\'><div class=\'insta-post-placeholder-icon\'>👗</div><div class=\'insta-post-placeholder-brand\'>Michael Kors</div></div>'" />
-            <div class="insta-post-overlay"><span class="insta-post-icon">📷</span></div>
-          </div>
-          <!-- Post 2 -->
-          <div class="insta-post" onclick="window.open('https://instagram.com/bellacurvestore','_blank')">
-            <img class="insta-post-img" src="https://raw.githubusercontent.com/nanicunha/bellacurve.store/main/CalvinKleinBlazerMinimalistaCK.png" alt="Calvin Klein Blazer"
-              onerror="this.parentElement.innerHTML='<div class=\'insta-post-placeholder\'><div class=\'insta-post-placeholder-icon\'>🥻</div><div class=\'insta-post-placeholder-brand\'>Calvin Klein</div></div>'" />
-            <div class="insta-post-overlay"><span class="insta-post-icon">📷</span></div>
-          </div>
-          <!-- Post 3 -->
-          <div class="insta-post" onclick="window.open('https://instagram.com/bellacurvestore','_blank')">
-            <img class="insta-post-img" src="https://raw.githubusercontent.com/nanicunha/bellacurve.store/main/LevisJeans721HighRise.png" alt="Levis Jeans"
-              onerror="this.parentElement.innerHTML='<div class=\'insta-post-placeholder\'><div class=\'insta-post-placeholder-icon\'>🧵</div><div class=\'insta-post-placeholder-brand\'>Levi\'s</div></div>'" />
-            <div class="insta-post-overlay"><span class="insta-post-icon">📷</span></div>
-          </div>
-          <!-- Post 4 -->
-          <div class="insta-post" onclick="window.open('https://instagram.com/bellacurvestore','_blank')">
-            <img class="insta-post-img" src="https://raw.githubusercontent.com/nanicunha/bellacurve.store/main/MichaelKorsBolsaSelmaPlus.png" alt="Michael Kors Bolsa"
-              onerror="this.parentElement.innerHTML='<div class=\'insta-post-placeholder\'><div class=\'insta-post-placeholder-icon\'>👜</div><div class=\'insta-post-placeholder-brand\'>Michael Kors</div></div>'" />
-            <div class="insta-post-overlay"><span class="insta-post-icon">📷</span></div>
-          </div>
-          <!-- Post 5 -->
-          <div class="insta-post" onclick="window.open('https://instagram.com/bellacurvestore','_blank')">
-            <img class="insta-post-img" src="https://raw.githubusercontent.com/nanicunha/bellacurve.store/main/NikeLeggingTempoLuxe.png" alt="Nike Legging"
-              onerror="this.parentElement.innerHTML='<div class=\'insta-post-placeholder\'><div class=\'insta-post-placeholder-icon\'>⚡</div><div class=\'insta-post-placeholder-brand\'>Nike</div></div>'" />
-            <div class="insta-post-overlay"><span class="insta-post-icon">📷</span></div>
-          </div>
-          <!-- Post 6 -->
-          <div class="insta-post" onclick="window.open('https://instagram.com/bellacurvestore','_blank')">
-            <img class="insta-post-img" src="https://raw.githubusercontent.com/nanicunha/bellacurve.store/main/RalphLaurenSaiaMidiLinhoVerao.png" alt="Ralph Lauren Saia"
-              onerror="this.parentElement.innerHTML='<div class=\'insta-post-placeholder\'><div class=\'insta-post-placeholder-icon\'>☀️</div><div class=\'insta-post-placeholder-brand\'>Ralph Lauren</div></div>'" />
-            <div class="insta-post-overlay"><span class="insta-post-icon">📷</span></div>
-          </div>
-          <!-- Post 7 -->
-          <div class="insta-post" onclick="window.open('https://instagram.com/bellacurvestore','_blank')">
-            <img class="insta-post-img" src="https://raw.githubusercontent.com/nanicunha/bellacurve.store/main/TommyHilfigerCalcaChinoClassica.png" alt="Tommy Hilfiger Calça"
-              onerror="this.parentElement.innerHTML='<div class=\'insta-post-placeholder\'><div class=\'insta-post-placeholder-icon\'>👖</div><div class=\'insta-post-placeholder-brand\'>Tommy Hilfiger</div></div>'" />
-            <div class="insta-post-overlay"><span class="insta-post-icon">📷</span></div>
-          </div>
-          <!-- Post 8 -->
-          <div class="insta-post" onclick="window.open('https://instagram.com/bellacurvestore','_blank')">
-            <img class="insta-post-img" src="https://raw.githubusercontent.com/nanicunha/bellacurve.store/main/NikeConjuntoSportChic.png" alt="Nike Conjunto"
-              onerror="this.parentElement.innerHTML='<div class=\'insta-post-placeholder\'><div class=\'insta-post-placeholder-icon\'>🏃</div><div class=\'insta-post-placeholder-brand\'>Nike</div></div>'" />
-            <div class="insta-post-overlay"><span class="insta-post-icon">📷</span></div>
+      <div class="testimonial-card">
+        <div class="stars">★ ★ ★ ★ ★</div>
+        <p class="testimonial-text">"Sempre quis ter peças Ralph Lauren no meu guarda-roupa, mas nunca encontrava no meu tamanho. A Bella Curve resolveu isso com elegância e atenção que não esperava."</p>
+        <div class="testimonial-author">
+          <div class="testimonial-avatar">👩🏾</div>
+          <div>
+            <div class="testimonial-name">Carla M.</div>
+            <div class="testimonial-city">Rio de Janeiro, RJ</div>
           </div>
         </div>
       </div>
-      <button class="insta-nav next" onclick="instaNav(1)" aria-label="Próximo">›</button>
+      <div class="testimonial-card">
+        <div class="stars">★ ★ ★ ★ ★</div>
+        <p class="testimonial-text">"O guia de tamanhos é preciso e o atendimento via WhatsApp foi impecável. Recebi meu pedido Tommy Hilfiger perfeito. É outra experiência de compra — sofisticada de verdade."</p>
+        <div class="testimonial-author">
+          <div class="testimonial-avatar">👩🏽</div>
+          <div>
+            <div class="testimonial-name">Juliana R.</div>
+            <div class="testimonial-city">Belo Horizonte, MG</div>
+          </div>
+        </div>
+      </div>
     </div>
-    <div class="insta-dots" id="insta-dots"></div>
   </div>
 </div>
 <!-- NEWSLETTER -->
