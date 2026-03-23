@@ -822,98 +822,7 @@
     }
     .testimonial-name { font-size: 13px; font-weight: 500; color: var(--ink); letter-spacing: 0.5px; }
     .testimonial-city { font-size: 11px; color: var(--taupe2); letter-spacing: 1px; margin-top: 3px; }
-    /* ── INSTAGRAM CAROUSEL ── */
-    .insta-carousel-wrap {
-      position: relative;
-    }
-    .insta-track-outer {
-      overflow: hidden;
-      position: relative;
-    }
-    .insta-track {
-      display: flex;
-      gap: 2px;
-      transition: transform 0.5s cubic-bezier(0.25,0.46,0.45,0.94);
-      will-change: transform;
-    }
-    .insta-post {
-      flex: 0 0 calc(25% - 2px);
-      aspect-ratio: 1/1;
-      overflow: hidden;
-      position: relative;
-      background: var(--ivory3);
-      cursor: pointer;
-    }
-    .insta-post-img {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      display: block;
-      transition: transform 0.6s cubic-bezier(0.25,0.46,0.45,0.94);
-    }
-    .insta-post:hover .insta-post-img { transform: scale(1.05); }
-    .insta-post-overlay {
-      position: absolute;
-      inset: 0;
-      background: rgba(28,26,23,0);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      transition: background 0.3s;
-    }
-    .insta-post:hover .insta-post-overlay { background: rgba(28,26,23,0.35); }
-    .insta-post-icon {
-      color: white;
-      font-size: 22px;
-      opacity: 0;
-      transform: scale(0.8);
-      transition: all 0.3s;
-    }
-    .insta-post:hover .insta-post-icon { opacity: 1; transform: scale(1); }
-    .insta-post-placeholder {
-      width: 100%;
-      height: 100%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      flex-direction: column;
-      gap: 10px;
-      background: var(--ivory3);
-    }
-    .insta-post-placeholder-icon { font-size: 32px; opacity: 0.2; }
-    .insta-post-placeholder-brand { font-size: 9px; letter-spacing: 3px; text-transform: uppercase; color: var(--taupe2); }
-    .insta-nav {
-      position: absolute;
-      top: 50%;
-      transform: translateY(-50%);
-      width: 44px; height: 44px;
-      background: var(--white);
-      border: 1px solid var(--beige);
-      display: flex; align-items: center; justify-content: center;
-      cursor: pointer;
-      font-size: 16px;
-      color: var(--ink2);
-      z-index: 10;
-      transition: all 0.3s;
-      box-shadow: 0 2px 12px rgba(0,0,0,0.08);
-    }
-    .insta-nav:hover { background: var(--ink); color: var(--white); border-color: var(--ink); }
-    .insta-nav.prev { left: -22px; }
-    .insta-nav.next { right: -22px; }
-    .insta-dots {
-      display: flex;
-      justify-content: center;
-      gap: 8px;
-      margin-top: 28px;
-    }
-    .insta-dot {
-      width: 6px; height: 6px;
-      border-radius: 50%;
-      background: var(--beige);
-      cursor: pointer;
-      transition: background 0.3s;
-    }
-    .insta-dot.active { background: var(--ink); }
+    /* ── INSTAGRAM GRID ── */
     .insta-header {
       display: flex;
       align-items: center;
@@ -965,13 +874,54 @@
       transition: background 0.3s;
     }
     .insta-follow-btn:hover { background: var(--ink2); }
-    @media (max-width: 1024px) {
-      .insta-post { flex: 0 0 calc(50% - 2px); }
-      .insta-nav.prev { left: -12px; }
-      .insta-nav.next { right: -12px; }
+    .insta-grid {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 4px;
     }
-    @media (max-width: 640px) {
-      .insta-post { flex: 0 0 calc(100% - 2px); }
+    .insta-post {
+      aspect-ratio: 1/1;
+      overflow: hidden;
+      position: relative;
+      background: var(--ivory3);
+      display: block;
+    }
+    .insta-post img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+      transition: transform 0.6s cubic-bezier(0.25,0.46,0.45,0.94);
+    }
+    .insta-post:hover img { transform: scale(1.05); }
+    .insta-overlay {
+      position: absolute;
+      inset: 0;
+      background: rgba(28,26,23,0);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: background 0.3s;
+    }
+    .insta-overlay span {
+      color: white;
+      font-size: 24px;
+      opacity: 0;
+      transform: scale(0.8);
+      transition: all 0.3s;
+    }
+    .insta-post:hover .insta-overlay { background: rgba(28,26,23,0.38); }
+    .insta-post:hover .insta-overlay span { opacity: 1; transform: scale(1); }
+    @media (max-width: 768px) {
+      .insta-grid { grid-template-columns: repeat(3, 1fr); }
+      .insta-post:nth-child(4),
+      .insta-post:nth-child(5) { display: none; }
+    }
+    @media (max-width: 480px) {
+      .insta-grid { grid-template-columns: repeat(2, 1fr); }
+      .insta-post:nth-child(3),
+      .insta-post:nth-child(4),
+      .insta-post:nth-child(5) { display: none; }
     }
     /* ── NEWSLETTER ── */
     .newsletter-section {
@@ -1370,7 +1320,7 @@
 <div class="statement-bar">
   <p class="statement-text">Uma curadoria pensada para mulheres <span>que sabem o valor de se vestir bem.</span></p>
 </div>
-<!-- INSTAGRAM CAROUSEL -->
+<!-- INSTAGRAM FEED -->
 <div class="section-wrap bg-ivory2">
   <div class="container">
     <div class="section-label"><div class="section-label-line"></div><span class="section-label-text">Instagram</span></div>
@@ -1389,55 +1339,31 @@
         <span>📷</span> Seguir no Instagram
       </a>
     </div>
-    <div class="insta-carousel-wrap">
-      <button class="insta-nav prev" onclick="instaNav(-1)" aria-label="Anterior">‹</button>
-      <div class="insta-track-outer">
-        <div class="insta-track" id="insta-track">
-          <div class="insta-post" onclick="window.open('https://www.instagram.com/bella_orlandofl','_blank')">
-            <img class="insta-post-img" src="https://raw.githubusercontent.com/nanicunha/bellacurve.store/main/MK_VestidoMidiSignature.png" alt="Michael Kors Vestido" onerror="this.style.display='none';this.parentElement.querySelector('.insta-post-placeholder').style.display='flex'" />
-            <div class="insta-post-placeholder" style="display:none"><div class="insta-post-placeholder-icon">👗</div><div class="insta-post-placeholder-brand">Michael Kors</div></div>
-            <div class="insta-post-overlay"><span class="insta-post-icon">📷</span></div>
-          </div>
-          <div class="insta-post" onclick="window.open('https://www.instagram.com/bella_orlandofl','_blank')">
-            <img class="insta-post-img" src="https://raw.githubusercontent.com/nanicunha/bellacurve.store/main/CalvinKleinBlazerMinimalistaCK.png" alt="Calvin Klein Blazer" onerror="this.style.display='none';this.parentElement.querySelector('.insta-post-placeholder').style.display='flex'" />
-            <div class="insta-post-placeholder" style="display:none"><div class="insta-post-placeholder-icon">🥻</div><div class="insta-post-placeholder-brand">Calvin Klein</div></div>
-            <div class="insta-post-overlay"><span class="insta-post-icon">📷</span></div>
-          </div>
-          <div class="insta-post" onclick="window.open('https://www.instagram.com/bella_orlandofl','_blank')">
-            <img class="insta-post-img" src="https://raw.githubusercontent.com/nanicunha/bellacurve.store/main/LevisJeans721HighRise.png" alt="Levis Jeans" onerror="this.style.display='none';this.parentElement.querySelector('.insta-post-placeholder').style.display='flex'" />
-            <div class="insta-post-placeholder" style="display:none"><div class="insta-post-placeholder-icon">🧵</div><div class="insta-post-placeholder-brand">Levi's</div></div>
-            <div class="insta-post-overlay"><span class="insta-post-icon">📷</span></div>
-          </div>
-          <div class="insta-post" onclick="window.open('https://www.instagram.com/bella_orlandofl','_blank')">
-            <img class="insta-post-img" src="https://raw.githubusercontent.com/nanicunha/bellacurve.store/main/MichaelKorsBolsaSelmaPlus.png" alt="Michael Kors Bolsa" onerror="this.style.display='none';this.parentElement.querySelector('.insta-post-placeholder').style.display='flex'" />
-            <div class="insta-post-placeholder" style="display:none"><div class="insta-post-placeholder-icon">👜</div><div class="insta-post-placeholder-brand">Michael Kors</div></div>
-            <div class="insta-post-overlay"><span class="insta-post-icon">📷</span></div>
-          </div>
-          <div class="insta-post" onclick="window.open('https://www.instagram.com/bella_orlandofl','_blank')">
-            <img class="insta-post-img" src="https://raw.githubusercontent.com/nanicunha/bellacurve.store/main/NikeLeggingTempoLuxe.png" alt="Nike Legging" onerror="this.style.display='none';this.parentElement.querySelector('.insta-post-placeholder').style.display='flex'" />
-            <div class="insta-post-placeholder" style="display:none"><div class="insta-post-placeholder-icon">⚡</div><div class="insta-post-placeholder-brand">Nike</div></div>
-            <div class="insta-post-overlay"><span class="insta-post-icon">📷</span></div>
-          </div>
-          <div class="insta-post" onclick="window.open('https://www.instagram.com/bella_orlandofl','_blank')">
-            <img class="insta-post-img" src="https://raw.githubusercontent.com/nanicunha/bellacurve.store/main/RalphLaurenSaiaMidiLinhoVerao.png" alt="Ralph Lauren Saia" onerror="this.style.display='none';this.parentElement.querySelector('.insta-post-placeholder').style.display='flex'" />
-            <div class="insta-post-placeholder" style="display:none"><div class="insta-post-placeholder-icon">☀️</div><div class="insta-post-placeholder-brand">Ralph Lauren</div></div>
-            <div class="insta-post-overlay"><span class="insta-post-icon">📷</span></div>
-          </div>
-          <div class="insta-post" onclick="window.open('https://www.instagram.com/bella_orlandofl','_blank')">
-            <img class="insta-post-img" src="https://raw.githubusercontent.com/nanicunha/bellacurve.store/main/TommyHilfigerCalcaChinoClassica.png" alt="Tommy Hilfiger" onerror="this.style.display='none';this.parentElement.querySelector('.insta-post-placeholder').style.display='flex'" />
-            <div class="insta-post-placeholder" style="display:none"><div class="insta-post-placeholder-icon">👖</div><div class="insta-post-placeholder-brand">Tommy Hilfiger</div></div>
-            <div class="insta-post-overlay"><span class="insta-post-icon">📷</span></div>
-          </div>
-          <div class="insta-post" onclick="window.open('https://www.instagram.com/bella_orlandofl','_blank')">
-            <img class="insta-post-img" src="https://raw.githubusercontent.com/nanicunha/bellacurve.store/main/NikeConjuntoSportChic.png" alt="Nike Conjunto" onerror="this.style.display='none';this.parentElement.querySelector('.insta-post-placeholder').style.display='flex'" />
-            <div class="insta-post-placeholder" style="display:none"><div class="insta-post-placeholder-icon">🏃</div><div class="insta-post-placeholder-brand">Nike</div></div>
-            <div class="insta-post-overlay"><span class="insta-post-icon">📷</span></div>
-          </div>
-        </div>
-      </div>
-      <button class="insta-nav next" onclick="instaNav(1)" aria-label="Próximo">›</button>
+
+    <!-- INSTAGRAM POSTS GRID -->
+    <div class="insta-grid">
+      <a href="https://www.instagram.com/bella_orlandofl" target="_blank" rel="noopener" class="insta-post">
+        <img src="https://behold.pictures/ZQxmTQwVwbeqvVxkqca19Ez0VXt2/af8xtiRKT4FqJoSTmwhJ/17930385342228978/medium.jpg" alt="Post @bella_orlandofl" loading="lazy" />
+        <div class="insta-overlay"><span>📷</span></div>
+      </a>
+      <a href="https://www.instagram.com/bella_orlandofl" target="_blank" rel="noopener" class="insta-post">
+        <img src="https://behold.pictures/ZQxmTQwVwbeqvVxkqca19Ez0VXt2/af8xtiRKT4FqJoSTmwhJ/18109625833696920/medium.jpg" alt="Post @bella_orlandofl" loading="lazy" />
+        <div class="insta-overlay"><span>📷</span></div>
+      </a>
+      <a href="https://www.instagram.com/bella_orlandofl" target="_blank" rel="noopener" class="insta-post">
+        <img src="https://behold.pictures/ZQxmTQwVwbeqvVxkqca19Ez0VXt2/af8xtiRKT4FqJoSTmwhJ/18029234657801234/medium.jpg" alt="Post @bella_orlandofl" loading="lazy" />
+        <div class="insta-overlay"><span>📷</span></div>
+      </a>
+      <a href="https://www.instagram.com/bella_orlandofl" target="_blank" rel="noopener" class="insta-post">
+        <img src="https://behold.pictures/ZQxmTQwVwbeqvVxkqca19Ez0VXt2/af8xtiRKT4FqJoSTmwhJ/17857858236623525/medium.jpg" alt="Post @bella_orlandofl" loading="lazy" />
+        <div class="insta-overlay"><span>📷</span></div>
+      </a>
+      <a href="https://www.instagram.com/bella_orlandofl" target="_blank" rel="noopener" class="insta-post">
+        <img src="https://behold.pictures/ZQxmTQwVwbeqvVxkqca19Ez0VXt2/af8xtiRKT4FqJoSTmwhJ/18046278968748998/medium.jpg" alt="Post @bella_orlandofl" loading="lazy" />
+        <div class="insta-overlay"><span>📷</span></div>
+      </a>
     </div>
-    <div class="insta-dots" id="insta-dots"></div>
+
   </div>
 </div>
 <!-- EDITORIAL CARDS -->
@@ -1860,52 +1786,6 @@
     showToast('Bem-vinda à lista exclusiva da Bella Curve.');
     e.target.reset();
   }
-
-  // ── INSTAGRAM CAROUSEL ──
-  (function() {
-    var track, totalPosts, visiblePosts, totalPages, currentPage = 0;
-    function getVisible() {
-      return window.innerWidth <= 640 ? 1 : window.innerWidth <= 1024 ? 2 : 4;
-    }
-    function initInsta() {
-      track = document.getElementById('insta-track');
-      if (!track) return;
-      totalPosts = track.children.length;
-      visiblePosts = getVisible();
-      totalPages = Math.ceil(totalPosts / visiblePosts);
-      currentPage = 0;
-      renderDots();
-      updateTrack();
-    }
-    function renderDots() {
-      var dotsEl = document.getElementById('insta-dots');
-      if (!dotsEl) return;
-      dotsEl.innerHTML = '';
-      for (var i = 0; i < totalPages; i++) {
-        var d = document.createElement('div');
-        d.className = 'insta-dot' + (i === 0 ? ' active' : '');
-        d.setAttribute('data-i', i);
-        d.onclick = function() { currentPage = parseInt(this.getAttribute('data-i')); updateTrack(); };
-        dotsEl.appendChild(d);
-      }
-    }
-    function updateTrack() {
-      if (!track) return;
-      var postWidth = 100 / visiblePosts;
-      var offset = currentPage * visiblePosts * postWidth;
-      track.style.transform = 'translateX(-' + offset + '%)';
-      document.querySelectorAll('.insta-dot').forEach(function(d, i) {
-        d.classList.toggle('active', i === currentPage);
-      });
-    }
-    window.instaNav = function(dir) {
-      currentPage = (currentPage + dir + totalPages) % totalPages;
-      updateTrack();
-    };
-    document.addEventListener('DOMContentLoaded', initInsta);
-    window.addEventListener('resize', initInsta);
-    initInsta();
-  })();
 
   renderProducts();
 </script>
