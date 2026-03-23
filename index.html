@@ -430,13 +430,14 @@
     }
     .statement-text {
       font-family: 'Cormorant Garamond', serif;
-      font-size: clamp(20px, 2.5vw, 30px);
+      font-size: clamp(16px, 1.8vw, 26px);
       font-style: italic;
       font-weight: 300;
       color: var(--taupe);
-      max-width: 780px;
+      max-width: 100%;
       margin: 0 auto;
       line-height: 1.6;
+      white-space: nowrap;
     }
     .statement-text span { color: var(--gold-lt); }
     /* ── PRODUCTS ── */
@@ -626,23 +627,12 @@
       color: var(--ivory3);
       padding: 18px 0;
       border-bottom: 1px solid rgba(255,255,255,0.07);
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
+      text-align: center;
       transition: color 0.3s;
       cursor: default;
+      position: relative;
     }
     .brand-name-item:hover { color: var(--gold-lt); }
-    .brand-name-item::after {
-      content: '→';
-      font-family: 'Jost', sans-serif;
-      font-size: 13px;
-      color: var(--taupe2);
-      opacity: 0;
-      flex-shrink: 0;
-      transition: opacity 0.3s;
-    }
-    .brand-name-item:hover::after { opacity: 1; }
     @media (max-width: 768px) {
       .brand-names { grid-template-columns: repeat(2, 1fr); column-gap: 32px; }
     }
